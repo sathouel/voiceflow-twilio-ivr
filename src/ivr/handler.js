@@ -87,14 +87,14 @@ async function interact(caller, action) {
         input: 'speech dtmf', // 'speech',
         numDigits: 4,
         finishOnKey: '#',
-        hints: 'I need to check my account, Tico, Voiceflow, NiKo, yes',
+        // hints: 'I need to check my account, Tico, Voiceflow, NiKo, yes',
         action: '/ivr/interaction',
         profanityFilter: false,
         actionOnEmptyResult: true,
         speechModel: 'experimental_utterances', // 'phone_call', 'numbers_and_commands','experimental_utterances', 'experimental_conversations', ...
         enhanced: true,
         speechTimeout: 'auto',
-        language: 'en-US',
+        language: 'fr-FR',
         method: 'POST',
       })
 
@@ -124,7 +124,7 @@ async function interact(caller, action) {
 
             await convertAudio(rawFilePath, tempFilePath)
 
-            const audioUrl = `${process.env.BASE_URL}/ivr/audio/${tempFileName}`
+            const audioUrl = `${process.env.BASE_PUBLIC_URL}/ivr/audio/${tempFileName}`
 
             agent.play(audioUrl)
             setTimeout(async () => {
